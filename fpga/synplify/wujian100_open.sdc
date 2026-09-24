@@ -12,7 +12,7 @@
 #
 # Clocks
 #top
-define_clock   {n:PIN_EHS} -name PIN_EHS  -freq 20 -clockgroup clkgroup_2
+define_clock   {n:PIN_EHS} -name PIN_EHS  -freq 50 -clockgroup clkgroup_2
 define_clock   {n:PAD_JTAG_TCLK} -name PAD_JTAG_TCLK  -freq 2 -clockgroup clkgroup_3
 define_clock   {n:x_aou_top.x_rtc0_sec_top.x_rtc_aou_top.x_rtc_clk_div.i_rtc_ext_clk} -name I_RTC_EXT_CLK -freq 1 -clockgroup clkgroup_4
 define_clock   {n:x_aou_top.x_rtc0_sec_top.x_rtc_aou_top.x_rtc_clk_div.rtc_clk_div} -name RTC_CLK_DIV -freq 0.5 -clockgroup clkgroup_4

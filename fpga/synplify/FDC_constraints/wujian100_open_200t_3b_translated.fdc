@@ -1,0 +1,108 @@
+################################################################################
+####  This file contains constraints from Synplicity SDC files that have been
+####  translated into Synopsys FPGA Design Constraints (FDC).
+####  Translated FDC output file:
+####  /home/hanyuxin/Documents/Projects/T_head/wujian100_project/wujian100_open/fpga/synplify/FDC_constraints//wujian100_open_200t_3b_translated.fdc
+####  Source SDC files to the translation:
+####  /home/hanyuxin/Documents/Projects/T_head/wujian100_project/wujian100_open/fpga/synplify/wujian100_open.sdc
+################################################################################
+ 
+ 
+###==== BEGIN Header
+###==== END Header
+################################################################################
+####  Source SDC file to the translation:
+####  /home/hanyuxin/Documents/Projects/T_head/wujian100_project/wujian100_open/fpga/synplify/wujian100_open.sdc
+################################################################################
+ 
+ 
+#Copyright (c) 2019 Alibaba Group Holding Limited
+#
+#Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# Collections
+#
+
+#
+# Clocks
+#top
+#pwm
+#
+# Clock to Clock
+#
+
+#
+# Inputs/Outputs
+#
+
+#
+# Registers
+#
+
+#
+# Delay Paths
+#
+
+#
+# Attributes
+#
+
+#
+# I/O Standards
+#
+
+#
+# Compile Points
+#
+
+#
+# Other
+#
+
+ 
+################################################################################
+####  The following Synplicity constraints from file:
+####  /home/hanyuxin/Documents/Projects/T_head/wujian100_project/wujian100_open/fpga/synplify/wujian100_open.sdc
+####  are disabled and have not been translated.
+################################################################################
+ 
+################################################################################
+ 
+##############################################################################
+# FDC constraints translated from Synplify Legacy Timing & Design Constraints
+##############################################################################
+ 
+set_rtl_ff_names {}
+###==== BEGIN Collections - (Populated from tab in SCOPE, do not edit)
+###==== END Collections - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN Clocks - (Populated from tab in SCOPE, do not edit)
+create_clock -name {PIN_EHS} [get_nets {n:PIN_EHS}] -period 20.0 -waveform {0 10.0}
+create_clock -name {PAD_JTAG_TCLK} [get_nets {n:PAD_JTAG_TCLK}] -period 500.0 -waveform {0 250.0}
+create_clock -name {I_RTC_EXT_CLK} [get_nets {n:x_aou_top.x_rtc0_sec_top.x_rtc_aou_top.x_rtc_clk_div.i_rtc_ext_clk}] -period 1000.0 -waveform {0 500.0}
+create_clock -name {RTC_CLK_DIV} [get_nets {n:x_aou_top.x_rtc0_sec_top.x_rtc_aou_top.x_rtc_clk_div.rtc_clk_div}] -period 2000.0 -waveform {0 1000.0}
+create_clock -name {CLKDIV} [get_nets {n:x_pdu_top.x_sub_apb0_top.x_pwm_sec_top.x_pwm.x_pwm_ctrl.clkdiv}] -period 200.0 -waveform {0 100.0}
+set_clock_groups -derive -asynchronous -name {clkgroup_2} \
+	-group {PIN_EHS CLKDIV}
+set_clock_groups -derive -asynchronous -name {clkgroup_3} \
+	-group {PAD_JTAG_TCLK}
+set_clock_groups -derive -asynchronous -name {clkgroup_4} \
+	-group {I_RTC_EXT_CLK RTC_CLK_DIV}
+###==== END Clocks - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN "Generated Clocks" - (Populated from tab in SCOPE, do not edit)
+###==== END "Generated Clocks" - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN Inputs/Outputs - (Populated from tab in SCOPE, do not edit)
+###==== END Inputs/Outputs - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN Registers - (Populated from tab in SCOPE, do not edit)
+###==== END Registers - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN "Delay Paths" - (Populated from tab in SCOPE, do not edit)
+###==== END "Delay Paths" - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN Attributes - (Populated from tab in SCOPE, do not edit)
+###==== END Attributes - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN "I/O Standards" - (Populated from tab in SCOPE, do not edit)
+###==== END "I/O Standards" - (Populated from tab in SCOPE, do not edit)
+###==== BEGIN "Compile Points" - (Populated from tab in SCOPE, do not edit)
+###==== END "Compile Points" - (Populated from tab in SCOPE, do not edit)

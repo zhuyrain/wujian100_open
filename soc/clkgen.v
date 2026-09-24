@@ -400,7 +400,10 @@ assign  soc_p0rst_b = sys_rst_b;
 assign  soc_p1rst_b = sys_rst_b;
 assign  soc_s3rst_b = sys_rst_b;
 assign  pad_core_clk = soc_hclk; 
-assign  pad_core_ctim_refclk = soc_hclk;
+// Original Logic
+// assign pad_core_ctim_refclk = soc_hclk;
+// Modified to
+assign pad_core_ctim_refclk = 1'b0;
 assign  pmu_dmac0_hclk = soc_hclk;
 assign  pmu_imemdummy0_hclk = soc_hclk;
 assign  pmu_dmemdummy0_hclk = soc_hclk;

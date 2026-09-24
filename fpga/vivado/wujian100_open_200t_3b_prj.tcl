@@ -6,10 +6,10 @@
 #
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-create_project -force project_3b ./project_3b -part xc7a200tfbg484-2
+create_project -force project_bx72 ./project_bx72 -part xc7a200tfbg484-2
 set_property design_mode GateLvl [current_fileset]
 add_files -norecurse {../synplify/wujian100_open_200t_3b_rev/wujian100_open.edf}
 set_property top wujian100_open [get_filesets sources_1]
-add_files -fileset constrs_1 -norecurse {../synplify/wujian100_open_200t_3b_rev/wujian100_open_edif.xdc ../xdc/XC7A200T3B.xdc}
+add_files -fileset constrs_1 -norecurse {../synplify/wujian100_open_200t_3b_rev/wujian100_open_edif.xdc ../xdc/XC7A200TBX72.xdc}
 set_property top_file ../synplify/wujian100_open_200t_3b_rev/wujian100_open.edf [current_fileset]
 launch_runs impl_1 -to_step write_bitstream

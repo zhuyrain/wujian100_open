@@ -581,6 +581,22 @@ wire            usi2_wic_intr;
 wire            wdt_pmu_rst_b;         
 wire            wdt_wic_intr;          
 
+wire clk_fb;
+wire clk_out1;
+MMCME2_BASE #(
+  .CLKIN1_PERIOD(20.000),      // 输入时钟周期 50MHz = 20ns
+  .CLKFBOUT_MULT_F(20.000),    // VCO 乘法器倍数 (50MHz * 20 = 1000MHz)
+  .DIVCLK_DIVIDE(1),           // 全局除法器
+  .CLKOUT0_DIVIDE_F(50.000)    // 输出分频器 (1000MHz / 50 = 20MHz)
+) u_mmcm_50M_to_20M (
+  .CLKIN1(PIN_EHS),            // 接入物理 50MHz 管脚
+  .CLKOUT0(clk_out1),          // 输出 20MHz 给 SoC
+  .CLKFBOUT(clk_fb),           // 内部反馈引脚输出
+  .CLKFBIN(clk_fb),            // 内部反馈引脚输入直连
+  .RST(~PAD_MCURST),           // 复位输入
+  .PWRDWN(1'b0),
+  .LOCKED()
+);
 
 
 aou_top  x_aou_top (
@@ -1167,7 +1183,7 @@ retu_top  x_retu_top (
 PAD_OSC_IO  x_PAD_EHS (
   .CLK         (ehs_pmu_clk),
   .EN          (1'b1       ),
-  .XOSC_IN     (PIN_EHS    ),
+  .XOSC_IN     (clk_out1   ),
   .XOSC_OUT    (POUT_EHS   )
 );
 
