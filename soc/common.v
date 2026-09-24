@@ -65,13 +65,13 @@ assign clk_en_bf_latch = (global_en && (module_en || local_en)) || external_en ;
 assign SE	       = pad_yy_test_mode | pad_yy_gate_clk_en_b;
 `ifdef FPGA
 
-// assign clk_out = clk_in;
-// 替换为 Xilinx 原生带使能的时钟缓冲器 (等效 ASIC ICG)
-BUFGCE u_fpga_icg (
-    .O(clk_out),
-    .I(clk_in),
-    .CE(clk_en_bf_latch)      // 这里的 en 就是 PWM 传过来的分频使能信号
-);
+assign clk_out = clk_in;
+// // 替换为 Xilinx 原生带使能的时钟缓冲器 (等效 ASIC ICG)
+// BUFGCE u_fpga_icg (
+//     .O(clk_out),
+//     .I(clk_in),
+//     .CE(clk_en_bf_latch)      // 这里的 en 就是 PWM 传过来的分频使能信号
+// );
 `else
 Standard_Cell_CLK_GATE x_gated_clk_cell(
              .CK  (clk_in),
