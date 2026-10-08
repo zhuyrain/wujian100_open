@@ -17,6 +17,25 @@ use File::Basename;
 use Term::ANSIColor;
 use strict;
 no strict 'refs';
+
+my %Opt;
+if(!&GetOptions
+	(\%Opt,
+		'--h',	                #Print help message
+		'--nodump',             #Disable the waveform dump function in VCS simulation
+		'--sim_tool:s',         #Specify the simulation tools, support vcs and iverilog
+		'--nomnt'))              #disable mnt module when running tb
+{
+	&print_usage();
+	exit(1);
+}
+
+
+if($Opt{'h'}) {
+	&print_usage();
+	exit(1);
+}
+
 my $wujian100_open_PATH = `pwd`;
 chomp($wujian100_open_PATH);
 $wujian100_open_PATH =~ s/wujian100_open.*/wujian100_open\//;
@@ -43,27 +62,6 @@ else {
 	exit(1);
 }
 print "\nStep1 (Remove all things in current 'workdir') is finished!\n";
-
-my %Opt;
-if(!&GetOptions
-	(\%Opt,
-		'--h',	                #Print help message
-		'--nodump',             #Disable the waveform dump function in VCS simulation
-		'--sim_tool:s',         #Specify the simulation tools, support vcs and iverilog
-		'--nomnt'))              #disable mnt module when running tb
-{
-	&print_usage();
-	exit(1);
-}
-
-
-if($Opt{'h'}) {
-	&print_usage();
-	exit(1);
-}
-
-
-
 
 my $s_vcs = 0;
 my $s_iverilog = 0;
